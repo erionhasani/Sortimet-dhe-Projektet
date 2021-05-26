@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	const int m = 10;
+	int numrat[m] = { 1,2,7,2,8,4,57,45,1,99 };
+	int i, j;
+	int min = numrat[0];
+	for (i = 0; i < m - 1; i++)
+	{
+		min = i;
+		for (j = i + 1; j < m; j++)
+			if (numrat[j] < numrat[min])
+				min = j;
+		swap(numrat[min], numrat[i]);
+	}
+
+	for (i = 0; i < m;i++) {
+		cout << numrat[i] << " ";
+	}
+};

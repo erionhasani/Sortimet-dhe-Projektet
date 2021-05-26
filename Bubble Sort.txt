@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	const int n = 10;
+	int numrat[n] = { 1,2,7,2,8,4,57,45,1,99 };
+	int i, j;
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+			if (numrat[j] > numrat[j + 1]) {
+				swap(numrat[j], numrat[j + 1]);
+			}
+		}
+	}
+	for (int i = 0;i < n;i++) {
+		cout << numrat[i] << " ";
+	}
+};

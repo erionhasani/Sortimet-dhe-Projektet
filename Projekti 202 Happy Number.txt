@@ -1,0 +1,65 @@
+class Solution {
+public:
+    int shuma(int num) {
+        int  shuma_e_katroreve= 0;
+        while(num) {
+            int n = num % 10;
+            shuma_e_katroreve = shuma_e_katroreve + n*n;
+            num = num / 10;
+        }
+        return shuma_e_katroreve;
+    }
+    bool isHappy(int n) {
+        if (n == 0) {
+            return false;
+        }
+        unordered_set<int> numrat;
+        while(numrat.find(n) == numrat.end()) {
+            numrat.insert(n);
+            n = shuma(n);
+            if(n == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+
+// Example program
+#include <iostream>
+#include <string>
+#include <unordered_set>
+using namespace std;
+
+int sum_of_squares(int num) {
+    int sum = 0;
+    while (num) {
+        int d = num % 10; // Gjejme modulin e numrit (Moduli eshte mbetja)
+        cout << "Moduli: " << d << endl;
+        sum += d * d;   // Mbledhim katrorin e modulit 
+        cout << "Shuma: " << sum << endl;
+        cout << "Num para pjesetimit: " << num << endl;
+        num /= 10;      // Pjestojme me 10 qe te marrim numrat e mbetur 
+        cout << "Num: " << num << endl; 
+    } return sum;
+};
+bool isHappy(int num) {
+    if (num == 0) {
+        return false;
+    }
+    unordered_set<int> numrat; // deklarojme unordered set pershkak se na duhen vlerat e shumave 
+    while (numrat.find(num) == numrat.end()) {
+        numrat.insert(num);
+        num = sum_of_squares(   num);
+        if (num == 1) {
+            return true;
+        }
+    } return false;
+
+}
+int main()
+{
+    cout << "Happy number: " << isHappy(2);
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	const int m = 10;
+	int numrat[m] = { 1,2,7,2,8,4,57,45,1,99 };
+	int numri, j, i;
+	for (i = 1; i < m; i++)
+	{
+		numri = numrat[i];
+		j = i;
+		while (j > 0 && numrat[j - 1] > numri)
+		{
+			numrat[j] = numrat[j - 1];
+			j--;
+		}
+		numrat[j] = numri;
+	}
+	for (int i = 0; i < m;i++) {
+		cout << numrat[i] << " ";
+	}
+};

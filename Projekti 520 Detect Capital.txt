@@ -1,0 +1,55 @@
+KODI: 
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+    int n = word.length(); // variabel ku marrim gjatesine e fjales (jo e domosdoshme)
+    for (int i = 1;i < n;i++) { // fillojme nga i = 1 sepse ne krahasojme nga shkronja e dyte e tutje 
+        if (islower(word[0]) && isupper(word[i])) { //nese e para eshte e vogel dhe njera nga te tjerat e madhe "eRion"
+            return false;
+        }
+        else {
+            if (isupper(word[n - 1]) && islower(word[i])) // nese e fundit eshte e madhe dhe njera nga te tjerat e vogel "erioN"
+                return false;
+            else if (islower(word[n - 1]) && isupper(word[i])) // nese e fundit eshte e vogel dhe njera nga te tjerat e madhe "ERIOn"
+                return false;
+        }
+    }
+    return true;
+}
+};
+
+KODI NE VISUAL STUDIO:
+
+// Example program
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+bool detectCapitalUse(string word) {
+    int n = word.length(); // variabel ku marrim gjatesine e fjales (jo e domosdoshme)
+    for (int i = 1;i < n;i++) { // fillojme nga i = 1 sepse ne krahasojme nga shkronja e dyte e tutje 
+        cout << word[i] << endl;
+        if (islower(word[0]) && isupper(word[i])) { //nese e para eshte e vogel dhe njera nga te tjerat e madhe "eRion"
+            return false;
+        }
+        else {
+            if (isupper(word[n - 1]) && islower(word[i])) // nese e fundit eshte e madhe dhe njera nga te tjerat e vogel "erioN"
+                return false;
+            else if (islower(word[n - 1]) && isupper(word[i])) // nese e fundit eshte e vogel dhe njera nga te tjerat e madhe "ERIOn"
+                return false;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    string test = "erioN";
+    cout << detectCapitalUse(test);
+
+}

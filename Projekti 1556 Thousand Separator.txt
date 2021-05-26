@@ -1,0 +1,36 @@
+1556. Thousand Separator
+
+Given an integer n, add a dot (".") as the thousands separator and return it in string format.
+
+Example 1:
+
+Input: n = 987
+Output: "987"
+
+
+KODI:
+
+class Solution {
+public:
+string thousandSeparator(int n) {
+        string str_numri = to_string(n);
+        string str = "";
+        int shifrat=0;
+        for (int i = str_numri.length()-1; i >=0; i--) 
+        {
+            shifrat++;
+            str.push_back(str_numri[i]);
+            if (shifrat == 3) {
+                str.push_back('.');
+                shifrat = 0;
+            }
+        }
+        reverse(str.begin(), str.end());
+
+        if (str.size() % 4 == 0)
+        {
+            str.erase(str.begin());
+        }
+        return str;
+    }
+};

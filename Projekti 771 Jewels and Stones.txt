@@ -1,0 +1,27 @@
+771. Jewels and Stones
+
+You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+
+Example 1:
+
+Input: jewels = "aA", stones = "aAAbbbb"
+Output: 3
+KODI
+
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        int vlera=0; // vlera e gureve qe jane edhe gure te cmuar
+        for(int i=0;i<jewels.length();i++){ // krahasojme cdo shkronje te jewels me secilen nga shkronjat e stones
+            for(int j = 0;j<stones.length();j++) {
+                if(jewels[i] == stones[j]){ // nese dy shkronja jane te njejta rrisim numrin e vleres
+                    vlera++;
+                }
+            }
+        }
+        return vlera;
+    }
+};
